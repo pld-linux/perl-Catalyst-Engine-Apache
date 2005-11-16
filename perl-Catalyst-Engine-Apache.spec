@@ -8,7 +8,7 @@
 %define	pdir	Catalyst
 %define	pnam	Engine-Apache
 Summary:	Catalyst::Engine::Apache - Catalyst Apache Engines
-#Summary(pl):	
+Summary(pl):	Catalyst::Engine::Apache - silniki Apache'a dla Catalysta
 Name:		perl-Catalyst-Engine-Apache
 Version:	0.99002
 Release:	1
