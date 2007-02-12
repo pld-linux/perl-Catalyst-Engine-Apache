@@ -8,7 +8,7 @@
 %define	pdir	Catalyst
 %define	pnam	Engine-Apache
 Summary:	Catalyst::Engine::Apache - Catalyst Apache Engines
-Summary(pl):	Catalyst::Engine::Apache - silniki Apache'a dla Catalysta
+Summary(pl.UTF-8):   Catalyst::Engine::Apache - silniki Apache'a dla Catalysta
 Name:		perl-Catalyst-Engine-Apache
 Version:	1.07
 Release:	1
@@ -30,8 +30,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 These classes provide mod_perl (Apache 2) support for Catalyst.
 
-%description -l pl
-Ten pakiet zawiera silnik Catalysta wykorzystuj±cy mod_perla
+%description -l pl.UTF-8
+Ten pakiet zawiera silnik Catalysta wykorzystujÄ…cy mod_perla
 (Apache 2.x).
 
 %prep
