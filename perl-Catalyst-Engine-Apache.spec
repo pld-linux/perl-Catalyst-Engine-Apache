@@ -10,16 +10,15 @@
 Summary:	Catalyst::Engine::Apache - Catalyst Apache Engines
 Summary(pl.UTF-8):	Catalyst::Engine::Apache - silniki Apache'a dla Catalysta
 Name:		perl-Catalyst-Engine-Apache
-Version:	1.07
+Version:	1.12
 Release:	1
 Epoch:		1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Catalyst/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	df6de0afe8496db091f3a7df6603a830
+# Source0-md5:	00d89cac86ed977428468433389f4c6e
 URL:		http://search.cpan.org/dist/Catalyst-Engine-Apache/
-BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with tests}
@@ -39,18 +38,26 @@ Ten pakiet zawiera silnik Catalysta wykorzystujący mod_perla
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
-%build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+# Makefile.PL turns on only t/0*.t; we're running all, and one test depends on this file
+if [ ! -e t/01use.t ]; then
+cat <<EOF>t/01use.t
+	use Test::More tests=>1;
+	ok(1);
+EOF
+fi
 
-%{?with_tests:./Build test}
+%build
+%{__perl} -MExtUtils::MakeMaker -we 'WriteMakefile(NAME=>"Catalyst::Engine::Apache")' \
+	INSTALLDIRS=vendor
+%{__make}
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-./Build install
+%{__make} pure_install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
