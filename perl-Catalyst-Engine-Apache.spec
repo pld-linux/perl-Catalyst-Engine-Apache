@@ -10,14 +10,14 @@
 Summary:	Catalyst::Engine::Apache - Catalyst Apache Engines
 Summary(pl.UTF-8):	Catalyst::Engine::Apache - silniki Apache'a dla Catalysta
 Name:		perl-Catalyst-Engine-Apache
-Version:	1.12
+Version:	1.16
 Release:	1
 Epoch:		1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Catalyst/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	00d89cac86ed977428468433389f4c6e
+# Source0-md5:	7a7241dadd7c0eb28ce10aeb90c9944e
 URL:		http://search.cpan.org/dist/Catalyst-Engine-Apache/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
