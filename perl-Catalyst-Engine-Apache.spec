@@ -4,7 +4,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	Catalyst
 %define	pnam	Engine-Apache
 Summary:	Catalyst::Engine::Apache - Catalyst Apache Engines
